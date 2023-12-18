@@ -1,0 +1,49 @@
+type Account @entity {
+  id: ID!
+  games: [Game!]! @derivedFrom(field: "creator") @derivedFrom(field: "rival")
+}
+
+type Game @entity {
+  id: ID!
+  creator: Account
+  rival: Account
+  bet: BigInt
+  rounds: BigInt
+  startDate: BigInt
+  roundTime: Int
+  leaveTime: Int
+  plays: BigInt
+  rivalPlays: BigInt
+  score: BigInt
+  rivalScore: BigInt
+  isFinished: Boolean
+  isJoined: Boolean
+  isPlayed: Boolean
+  isCanceled: Boolean
+  isLeft: Boolean
+  leaver: Account
+  lastRound: BigInt
+  ties: BigInt
+  winner: Account
+}
+
+type Play @entity {
+  id: ID!
+  game: Game!
+  player: Account!
+  play: BigInt!
+  attack: Int!
+  def: Int!
+}
+
+type Payment @entity {
+  id: ID!
+  game: Game!
+  to: Account!
+  amount: BigInt!
+}
+type Withdraw @entity {
+  id: ID!
+  to: Account!
+  amount: BigInt!
+}

@@ -1,0 +1,29 @@
+{
+  "name": "combats",
+  "version": "0.1.0",
+  "repository": "https://github.com/0xcyphered/combts-subgraph",
+  "license": "MIT",
+  "scripts": {
+    "create": "graph create combats --node https://api.thegraph.com/deploy/",
+    "create-local": "graph create combats --node http://127.0.0.1:8020",
+    "remove": "graph remove combats --node https://api.thegraph.com/deploy/",
+    "remove-local": "graph remove combats --node http://127.0.0.1:8020",
+    "deploy": "graph deploy combats --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy-local": "graph deploy combats --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020",
+    "setup": "yarn codegen && yarn create-local && yarn deploy-local",
+    "watch-local": "graph deploy combats --watch --debug --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020",
+    "codegen": "graph codegen --output-dir src/types/",
+    "test": "graph test",
+    "build": "graph build"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@graphprotocol/graph-cli": "^0.45.0",
+    "@graphprotocol/graph-ts": "^0.29.1",
+    "assemblyscript": "^0.26.3",
+    "matchstick-as": "^0.5.0",
+    "typescript": "^4.9.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0"
+  }
+}
