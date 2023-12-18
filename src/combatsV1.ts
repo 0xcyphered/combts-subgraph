@@ -25,6 +25,9 @@ export function handleGameCreated(event: GameCreated): void {
   game.roundTime = event.params.roundTime;
   game.leaveTime = event.params.leaveTime;
   game.startDate = event.params.startDate;
+  game.ties = new BigInt(0);
+  game.score = new BigInt(0);
+  game.rivalScore = new BigInt(0);
   game.save();
 }
 
@@ -48,18 +51,16 @@ export function handleGameScored(event: GameScored): void {
   let player = createOrLoadAccount(event.params.player.toHex());
   play.player = player.id;
   if (game.creator === player.id) {
-    game.score = game.score ? game.score.plus(new BigInt(1)) : new BigInt(1);
+    game.score = game.score.plus(new BigInt(1));
   } else {
-    game.rivalScore = game.rivalScore
-      ? game.rivalScore.plus(new BigInt(1))
-      : new BigInt(1);
+    game.rivalScore = game.rivalScore.plus(new BigInt(1));
   }
   game.save();
 }
 
 export function handleGameTied(event: GameTied): void {
   let game = createOrLoadGame(event.params.gameID.toHex());
-  game.ties = game.ties ? game.ties.plus(new BigInt(1)) : new BigInt(1);
+  game.ties = game.ties.plus(new BigInt(1));
   game.save();
 }
 

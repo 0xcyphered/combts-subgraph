@@ -216,38 +216,22 @@ export class Game extends Entity {
     }
   }
 
-  get score(): BigInt | null {
+  get score(): BigInt {
     let value = this.get("score");
-    if (!value || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBigInt();
-    }
+    return value!.toBigInt();
   }
 
-  set score(value: BigInt | null) {
-    if (!value) {
-      this.unset("score");
-    } else {
-      this.set("score", Value.fromBigInt(<BigInt>value));
-    }
+  set score(value: BigInt) {
+    this.set("score", Value.fromBigInt(value));
   }
 
-  get rivalScore(): BigInt | null {
+  get rivalScore(): BigInt {
     let value = this.get("rivalScore");
-    if (!value || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBigInt();
-    }
+    return value!.toBigInt();
   }
 
-  set rivalScore(value: BigInt | null) {
-    if (!value) {
-      this.unset("rivalScore");
-    } else {
-      this.set("rivalScore", Value.fromBigInt(<BigInt>value));
-    }
+  set rivalScore(value: BigInt) {
+    this.set("rivalScore", Value.fromBigInt(value));
   }
 
   get isFinished(): boolean {
@@ -329,21 +313,13 @@ export class Game extends Entity {
     }
   }
 
-  get ties(): BigInt | null {
+  get ties(): BigInt {
     let value = this.get("ties");
-    if (!value || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBigInt();
-    }
+    return value!.toBigInt();
   }
 
-  set ties(value: BigInt | null) {
-    if (!value) {
-      this.unset("ties");
-    } else {
-      this.set("ties", Value.fromBigInt(<BigInt>value));
-    }
+  set ties(value: BigInt) {
+    this.set("ties", Value.fromBigInt(value));
   }
 
   get winner(): string | null {
