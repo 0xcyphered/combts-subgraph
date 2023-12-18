@@ -14,8 +14,8 @@ type Game @entity {
   leaveTime: Int
   plays: BigInt
   rivalPlays: BigInt
-  score: BigInt
-  rivalScore: BigInt
+  score: BigInt!
+  rivalScore: BigInt!
   isFinished: Boolean
   isJoined: Boolean
   isPlayed: Boolean
@@ -23,7 +23,7 @@ type Game @entity {
   isLeft: Boolean
   leaver: Account
   lastRound: BigInt
-  ties: BigInt
+  ties: BigInt!
   winner: Account
 }
 

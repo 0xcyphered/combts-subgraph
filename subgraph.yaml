@@ -6,9 +6,9 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: CombatsV1
-    network: mainnet
+    network: arbitrum-sepolia
     source:
-      address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC"
+      address: "0x26648B783dBFC178C7f8996507b38bbD0F544863"
       abi: CombatsV1
     mapping:
       kind: ethereum/events
