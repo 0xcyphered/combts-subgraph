@@ -42,6 +42,16 @@ export class Account extends Entity {
     this.set("id", Value.fromString(value));
   }
 
+  get plays(): Array<string> {
+    let value = this.get("plays");
+    return value!.toStringArray();
+  }
+
+  get payments(): Array<string> {
+    let value = this.get("payments");
+    return value!.toStringArray();
+  }
+
   get games(): Array<string> {
     let value = this.get("games");
     return value!.toStringArray();
@@ -337,6 +347,16 @@ export class Game extends Entity {
     } else {
       this.set("winner", Value.fromString(<string>value));
     }
+  }
+
+  get gamePlays(): Array<string> {
+    let value = this.get("gamePlays");
+    return value!.toStringArray();
+  }
+
+  get payments(): Array<string> {
+    let value = this.get("payments");
+    return value!.toStringArray();
   }
 }
 

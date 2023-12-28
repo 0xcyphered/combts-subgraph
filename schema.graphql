@@ -1,5 +1,7 @@
 type Account @entity {
   id: ID!
+  plays: [Play!]! @derivedFrom(field: "player")
+  payments: [Payment!]! @derivedFrom(field: "to")
   games: [Game!]! @derivedFrom(field: "creator") @derivedFrom(field: "rival")
 }
 
@@ -25,6 +27,8 @@ type Game @entity {
   lastRound: BigInt
   ties: BigInt!
   winner: Account
+  gamePlays: [Play!]! @derivedFrom(field: "game")
+  payments: [Payment!]! @derivedFrom(field: "game")
 }
 
 type Play @entity {

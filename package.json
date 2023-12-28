@@ -8,7 +8,7 @@
     "create-local": "graph create combats --node http://127.0.0.1:8020",
     "remove": "graph remove combats --node https://api.thegraph.com/deploy/",
     "remove-local": "graph remove combats --node http://127.0.0.1:8020",
-    "deploy": "graph deploy combats --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy": "graph deploy combats",
     "deploy-local": "graph deploy combats --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020",
     "setup": "yarn codegen && yarn create-local && yarn deploy-local",
     "watch-local": "graph deploy combats --watch --debug --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020",
